@@ -1,0 +1,22 @@
+.headerText{
+  text-align: center;
+}
+.item img {
+  width: 50px;
+  height: 50px;
+  border-radius: 30px;
+  display: block;
+margin: 0 auto;
+}
+.userName {
+  margin: auto ;
+  text-align: center;
+  display: inline-block;
+  width: 70px;
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+.friendBlock{
+  margin-top: 10px;
+}
