@@ -5,10 +5,6 @@ const UNFOLLOW = 'UNFOLLOW';
 const SET_USERS = 'SET_USERS';
 let initialState = {
     users: [
-        { id: 1, photoUrl: "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg", followed: true, fullname: 'Dmitry', status: 'I am a boss', location: { city: 'Minsk', country: 'Belarus' } },
-        { id: 2, photoUrl: "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg", followed: false, fullname: 'Artyom', status: 'Wheeling on ocean', location: { city: 'Moscow', country: 'Russia' } },
-        { id: 3, photoUrl: "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg", followed: true, fullname: 'Alex', status: 'You reached a wrong number', location: { city: 'Vladivostok', country: 'Russia' } },
-        { id: 4, photoUrl: "https://png.pngtree.com/png-vector/20190710/ourmid/pngtree-user-vector-avatar-png-image_1541962.jpg", followed: false, fullname: 'Misha', status: 'Hi whats up', location: { city: 'Orel', country: 'Russia' } },
     ]
 }
 

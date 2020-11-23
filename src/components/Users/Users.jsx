@@ -1,10 +1,18 @@
+import * as Axios from 'axios';
 import React from 'react'
 import styles from './Users.module.css'
-const Users = (props) => {
-    debugger;
-    return (<div>
+
+class Users extends React.Component {
+    constructor(props) {
+        super(props);
+        Axios.get("https://localhost:44364/api/users/").then(response => {
+            this.props.setUsers(response.data);
+        });
+    }
+    render() {
+        return <div>
             {
-                props.users.map(u => {
+                this.props.users.map(u => {
                     return <div key={u.id}>
                         <span>
                             <div>
@@ -12,14 +20,14 @@ const Users = (props) => {
                             </div>
                             <div>
                                 {
-                                    u.followed ? <button onClick={() => props.unfollow(u.id)}>Unfollow</button> : <button onClick={() => props.follow(u.id)}>Follow</button>
+                                    u.followed ? <button onClick={() => this.props.unfollow(u.id)}>Unfollow</button> : <button onClick={() => this.props.follow(u.id)}>Follow</button>
                                 }
                             </div>
                         </span>
                         <span>
                             <span>
                                 <div>
-                                    {u.fullname}
+                                    {u.name}
                                 </div>
                                 <div>
                                     {u.status}
@@ -27,10 +35,10 @@ const Users = (props) => {
                             </span>
                             <span>
                                 <div>
-                                    {u.location.country}
+                                    {"u.location.country"}
                                 </div>
                                 <div>
-                                {u.location.city}
+                                    {"u.location.city"}
                                 </div>
                             </span>
                         </span>
@@ -38,6 +46,7 @@ const Users = (props) => {
                 })
             }
         </div>
-    );
+    }
+
 }
 export default Users;
