@@ -1,0 +1,42 @@
+@keyframes ldio-7qugm3in8oh {
+    0%, 100% {
+      animation-timing-function: cubic-bezier(0.45,0,0.9,0.55)
+    }
+    0% {
+      transform: translate(0,0)
+    }
+    50% {
+      transform: translate(0,108px);
+      animation-timing-function: cubic-bezier(0,0.45,0.55,0.9);
+    }
+    100% {
+      transform: translate(0,0);
+    }
+  }
+  
+  .ldiomqugm3in8oh div {
+    position: absolute;
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    background: #e15b64;
+    left: 74px;
+    top: 20px;
+    animation: ldio-7qugm3in8oh 1s linear infinite;
+  }
+  .loadingiospinner-ball-eznyuynr73m {
+    width: 200px;
+    height: 200px;
+    display: inline-block;
+    overflow: hidden;
+    background: #ffffff;
+  }
+  .ldiomqugm3in8oh {
+    width: 100%;
+    height: 100%;
+    position: relative;
+    transform: translateZ(0) scale(1);
+    backface-visibility: hidden;
+    transform-origin: 0 0; /* see note above */
+  }
+  .ldiomqugm3in8oh div { box-sizing: content-box; }
