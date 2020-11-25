@@ -1,5 +1,6 @@
 import * as Axios from 'axios';
 import React from 'react'
+import { NavLink } from 'react-router-dom';
 import styles from './Users.module.css'
 
 let Users = (props) => {
@@ -22,7 +23,9 @@ let Users = (props) => {
                 return <div key={u.id}>
                     <span>
                         <div>
+                            <NavLink to={'/profile/' + u.id}>
                             <img src={u.photoUrl} className={styles.userPhoto}></img>
+                            </NavLink>
                         </div>
                         <div>
                             {

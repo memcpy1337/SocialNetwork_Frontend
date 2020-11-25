@@ -1,13 +1,11 @@
 import React from 'react';
 import classes from './ProfileInfo.module.css'
-const ProfileInfo = () => {
+const ProfileInfo = (props) => {
   return (
     <div>
-      <div>
-        <img src=''></img>
-      </div>
       <div className={classes.descriptionBlock}>
-        ava + description
+        <img src={props.profile.photoUrl}></img>
+    ava + description
         </div>
     </div>
   );

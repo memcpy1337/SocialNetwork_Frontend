@@ -12,4 +12,5 @@ users: usersReducer
 });
 let store = createStore(reducers);
 
+window.store = store;
 export default store;

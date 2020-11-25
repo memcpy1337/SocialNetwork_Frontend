@@ -10,7 +10,7 @@ class UsersAPIComponent extends React.Component {
     }
     componentDidMount() {
         this.props.toogleIsFetching(true);
-        Axios.get('https://localhost:44364/api/users/page=' + this.props.currentPage + '/count=' + this.props.pageSize).then(response => {
+        Axios.get('https://localhost:44364/api/users/GetUserPage/page=' + this.props.currentPage + '/count=' + this.props.pageSize).then(response => {
             this.props.toogleIsFetching(false);
             this.props.setUserCount(response.data.number);
             this.props.setUsers(response.data.items);
@@ -19,7 +19,7 @@ class UsersAPIComponent extends React.Component {
     onClickedPage(p) {
         this.props.toogleIsFetching(true);
         this.props.setPage(p);
-        Axios.get('https://localhost:44364/api/users/page=' + p + '/count=' + this.props.pageSize).then(response => {
+        Axios.get('https://localhost:44364/api/users/GetUserPage/page=' + p + '/count=' + this.props.pageSize).then(response => {
             this.props.toogleIsFetching(false);
             this.props.setUsers(response.data.items);
             this.props.setUserCount(response.data.number);
