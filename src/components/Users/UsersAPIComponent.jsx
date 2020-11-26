@@ -1,6 +1,7 @@
 import * as Axios from 'axios';
 import React from 'react'
-import Preloader from '../common/Preloader/Preloader';
+import { getUserPage } from '../../api/api.js';
+import Preloader from '../common/Preloader/Preloader.jsx';
 import Users from './Users';
 import styles from './Users.module.css'
 
@@ -10,19 +11,20 @@ class UsersAPIComponent extends React.Component {
     }
     componentDidMount() {
         this.props.toogleIsFetching(true);
-        Axios.get('https://localhost:44364/api/users/GetUserPage/page=' + this.props.currentPage + '/count=' + this.props.pageSize).then(response => {
+        getUserPage(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.toogleIsFetching(false);
-            this.props.setUserCount(response.data.number);
-            this.props.setUsers(response.data.items);
+            this.props.setUserCount(data.number);
+            this.props.setUsers(data.items);
+            debugger;
         });
     }
     onClickedPage(p) {
         this.props.toogleIsFetching(true);
         this.props.setPage(p);
-        Axios.get('https://localhost:44364/api/users/GetUserPage/page=' + p + '/count=' + this.props.pageSize).then(response => {
+        getUserPage(this.props.currentPage, this.props.pageSize).then(data => {
             this.props.toogleIsFetching(false);
-            this.props.setUsers(response.data.items);
-            this.props.setUserCount(response.data.number);
+            this.props.setUsers(data.items);
+            this.props.setUserCount(data.number);
         });
 
     }

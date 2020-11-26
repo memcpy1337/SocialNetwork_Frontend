@@ -1,10 +1,30 @@
 .descriptionBlock {
+    display: grid;
     padding: 10px;
+    grid-template-areas:
+    "p i";
+    grid-template-rows: auto auto;
+    grid-template-columns: 1fr 3fr;
+    grid-gap: 10px;
 }
 
+.profilePhoto {
+    grid-area: p;
+}
 
-
-
+.userInfo {
+    margin-top: 50px;
+    grid-area: i;
+}
+.lookingTrue {
+    color: green;
+}
+.lookingFalse {
+    color: red;
+}
+.item {
+    margin-top: 5px;
+}
 
 
 
