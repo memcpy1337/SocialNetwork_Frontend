@@ -2,6 +2,7 @@ import * as axios from "axios";
 
 const defaultOptions = {
     baseURL: "https://localhost:44364/api/",
+    allowCredentials: true,
     headers: {
       'Content-Type': 'application/json',
     },
@@ -17,6 +18,7 @@ const defaultOptions = {
 
 
 export const getUserPage = (currentPage = 1, pageSize = 10) => {
+    debugger;
     return instance.get('https://localhost:44364/api/users/GetUserPage/page=' + currentPage + '/count=' + pageSize
     ).then(response => {
         return response.data;
