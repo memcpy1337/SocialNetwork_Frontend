@@ -20,7 +20,8 @@ const authReducer = (state = initialState, action) => {
     let newState;
     switch (action.type) {
         case SET_USER_DATA: {
-            newState = { ...state, ...action.data};
+            newState = { ...state, ...action.user };
+            debugger;
             return newState;
         }
         case LOGIN_TEXT_CHANGE: {
@@ -32,23 +33,28 @@ const authReducer = (state = initialState, action) => {
             return newState;
         }
         case ADD_AUTH_TOKEN: {
-            newState = { ...state,
-                 bearer: action.token,
-                 isAuth: true
-                };
-                localStorage.setItem('token', action.token);
+            newState = {
+                ...state,
+                bearer: action.token,
+                isAuth: true
+            };
+            localStorage.setItem('token', action.token);
             return newState;
         }
         default:
-        return state;
+            return state;
     }
 }
 export default authReducer;
 
-export const followAC = (userId, login) => {
+export const setUserAC = (user) => {
     return {
         type: SET_USER_DATA,
-        data: { userId, login }
+        user: {
+            userId: user.id,
+            login: user.username,
+            isAuth: user.isAuth
+        }
     }
 }
 export const textLogin = (text) => {

@@ -1,11 +1,30 @@
 import React from 'react';
 import { connect } from 'react-redux';
 import * as Axios from 'axios'
-import { addAuthTokenAC, textLogin, textPass } from '../../redux/auth-reducer';
-import { onLogin } from '../../api/api';
+import { addAuthTokenAC, setUserAC, textLogin, textPass } from '../../redux/auth-reducer';
+import { getMe, onLogin } from '../../api/api';
 const { default: Header } = require("./Header");
 
 class HeaderContainer extends React.Component {
+
+    componentDidMount() {
+        getMe().then(
+            result => {
+            debugger;
+                this.props.setUser({
+                    ...result,
+                    isAuth: true
+                })
+            },
+            () => this.props.setUser({
+                userId: null,
+                username: null,
+                bearer: null,
+                isAuth: false
+            }
+            )
+        )
+    }
 
     onLoginButton() {
         onLogin(this.props.logValue, this.props.passValue).then(
@@ -44,6 +63,9 @@ let matDispatchToProps = (dispatch) => {
         },
         authTokenAdd: (token) => {
             dispatch(addAuthTokenAC(token));
+        },
+        setUser: (user) => {
+            dispatch(setUserAC(user));
         }
 
     }
